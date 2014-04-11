@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 #Who wrote this mother:
@@ -13,17 +12,17 @@ exec 2> /home/sitco/logs/sitdb.log
 ###############################################################
 
 
-MSQ=$(mysql -s -n -h 10.0.0.11 -u sitco -p'J310ackBreck' << EOF
+MSQ=$(mysql -s -n -h 10.0.0.11 -u user -p'pass' << EOF
 use radius;
 SELECT max(id) FROM radcheck;
 EOF)
 
-MSQ1=$(mysql -s -n -h 10.0.0.11 -u sitco -p'J310ackBreck' << EOF
+MSQ1=$(mysql -s -n -h 10.0.0.11 -u user -p'pass' << EOF
 use radius;
 SELECT username FROM radcheck where id= '$MSQ';
 EOF)
 
-MSQ2=$(mysql -h 10.0.0.11 -u sitco -p'J310ackBreck' << EOF
+MSQ2=$(mysql -h 10.0.0.11 -u user -p'pass' << EOF
 use radius;
 SELECT contractid FROM rm_users WHERE username LIKE '$MSQ1';
 EOF)
@@ -45,8 +44,8 @@ EXEC=go
 SQSH=/usr/bin/sqsh
 DB=sitcodynamics_MSCRM
 HOST=192.168.216.106
-USER=sethro
-PASS=J310ackBreck4
+USER=user
+PASS=password
 
 
 VAR2=$($SQSH -D $DB -S $HOST -U $USER -P $PASS <<EOF
@@ -87,13 +86,13 @@ echo "$NAM" >> /home/sitco/logs/radius_auth.log
 
 MT="/queue simple add target=$IP name=\"$IP - $NAM\" max-limit=$UP/$DOWN;/;/"
 SPASS=/usr/bin/sshpass
-PASW='J310ackBreck'
+PASW='pass'
 SS=/usr/bin/ssh
 OPT=-o StrictHostKeyChecking=no
-U=admin
+U=user
 PORT=32
 
-$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW -p 32 $MT
+$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW -p 32 $MT
 
 
 ##SEND echo requests to a log file and send email to server
