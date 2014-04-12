@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 exec 2> /home/$USER/logs/sitfire_err.log
@@ -18,8 +17,8 @@ EXEC=go
 SQSH=/usr/bin/sqsh
 DB=sitcodynamics_MSCRM
 HOST=192.168.216.106
-USER=sethro
-PASS=J310ackBreck4
+USER=user
+PASS=pass
 
 VAR2=$($SQSH -D $DB -S $HOST -U $USER -P $PASS <<EOF
 $SQL
@@ -115,47 +114,47 @@ GW12=$(echo "$PG12".1)
 
 MT="/ip firewall filter remove [find src-address=\"$CUST1\";/;/"
 SPASS=/usr/bin/sshpass
-PASW='J310ackBreck'
+PASW='pass'
 SS=/usr/bin/ssh
 OPT=-o StrictHostKeyChecking=no
-U=admin
+U=user
 PORT=32
 
 #CUSTOMER-1#
-$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST1\"];/;/"
-$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST1 comment=\"$now-$NAME1\";/;/"
+$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST1\"];/;/"
+$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST1 comment=\"$now-$NAME1\";/;/"
 #CUSTOMER-2#
-$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST2\"];/;/"
-$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW2 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST2 comment=\"$now-$NAME2\";/;/"
+$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST2\"];/;/"
+$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW2 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST2 comment=\"$now-$NAME2\";/;/"
 #CUSTOMER-3#
-$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST3\"];/;/"
-$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW3 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST3 comment=\"$now-$NAME3\";/;/"
+$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST3\"];/;/"
+$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW3 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST3 comment=\"$now-$NAME3\";/;/"
 #CUSTOMER-4#
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST4\"];/;/"
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW4 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST4 comment=\"$now-$NAME4\";/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST4\"];/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW4 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST4 comment=\"$now-$NAME4\";/;/"
 #CUSTOMER-5#
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST5\"];/;/"
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW5 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST5 comment=\"$now-$NAME5\";/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST5\"];/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW5 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST5 comment=\"$now-$NAME5\";/;/"
 #CUSTOMER-6#
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST6\"];/;/"
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW6 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST6 comment=\"$now-$NAME6\";/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST6\"];/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW6 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST6 comment=\"$now-$NAME6\";/;/"
 #CUSTOMER-7#
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST7\"];/;/"
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW7 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST7 comment=\"$now-$NAME7\";/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST7\"];/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW7 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST7 comment=\"$now-$NAME7\";/;/"
 #CUSTOMER-8#
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST8\"];/;/"
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW8 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST8 comment=\"$now-$NAME8\";/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST8\"];/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW8 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST8 comment=\"$now-$NAME8\";/;/"
 #CUSTOMER-9#
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST9\"];/;/"
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW9 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST9 comment=\"$now-$NAME9\";/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST9\"];/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW9 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST9 comment=\"$now-$NAME9\";/;/"
 #CUSTOMER-10#
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST10\"];/;/"
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW10 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST10 comment=\"$now-$NAME10\";/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST10\"];/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW10 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST10 comment=\"$now-$NAME10\";/;/"
 #CUSTOMER-11#
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST11\"];/;/"
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW11 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST11 comment=\"$now-$NAME11\";/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST11\"];/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW11 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST11 comment=\"$now-$NAME11\";/;/"
 #CUSTOMER-12#
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST12\"];/;/"
-#$SPASS -p 'J310ackBreck' $SS -l $U -o StrictHostKeyChecking=no $GW12 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST12 comment=\"$now-$NAME12\";/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW1 -p 32 "/ip firewall filter remove [find src-address=\"$CUST12\"];/;/"
+#$SPASS -p 'pass' $SS -l $U -o StrictHostKeyChecking=no $GW12 -p 32 "/ip firewall filter add chain=forward action=drop src-address=$CUST12 comment=\"$now-$NAME12\";/;/"
 
 
