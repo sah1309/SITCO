@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Who wrote this mother:
+
 #Seth Hildenbrand
 
 #STERR REDIRECT#
